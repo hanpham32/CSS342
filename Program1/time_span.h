@@ -1,6 +1,9 @@
 #ifndef TIME_SPAN_H_
 #define TIME_SPAN_H_
 
+#include <iostream>
+using namespace std;
+
 class TimeSpan
 {
     public:
@@ -13,8 +16,13 @@ class TimeSpan
         int getMinutes() const;
         int getSeconds() const;
 
-        void setTime(int hours, int minutes, int seconds);
+        void ParseTimeSpan();
+        void setHours(int hours);
+        void setMinutes(int minutes);
+        void setSeconds(int seconds);
 
+        friend ostream& operator << (ostream& os, const TimeSpan ts);
+        
     private:
         int hours_;
         int minutes_;
