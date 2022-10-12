@@ -16,27 +16,23 @@ class TimeSpan
         int getMinutes() const;
         int getSeconds() const;
 
-        void setHours(int hours);
-        void setMinutes(int minutes);
-        void setSeconds(int seconds);
-
-
         friend ostream& operator << (ostream& os, const TimeSpan ts);
         
-        TimeSpan& operator=(const TimeSpan& ts);
-        //Comparison operators overload
+        //Unary operators overload
+        TimeSpan operator + (TimeSpan& st);
+        TimeSpan operator - (TimeSpan& st);
+
+        //Relational operators overload
         bool operator==(const TimeSpan& ts) const;
         bool operator!=(const TimeSpan& ts) const;
-        bool operator < (const TimeSpan& ts) const;
-        bool operator > (const TimeSpan& ts) const;
-        bool operator <= (const TimeSpan& ts) const;
-        bool operator >= (const TimeSpan& ts) const;
-
-        //Uniary operators overload
-        void operator + (TimeSpan st);
-        void operator - (TimeSpan& st);
+        bool operator < (const TimeSpan& ts);
+        bool operator > (const TimeSpan& ts);
+        bool operator <= (const TimeSpan& ts);
+        bool operator >= (const TimeSpan& ts);
 
         //Assignment operators overload
+        void operator=(const TimeSpan& ts);
+
         void operator-=(TimeSpan& st);
         void operator+=(TimeSpan& st);
 
@@ -46,5 +42,9 @@ class TimeSpan
         int minutes_;
         int seconds_;
         void ParseTimeSpan(float hours, float minutes, float seconds);
+        float CalculateTotalSeconds(float hours, float minutes, float seconds);
+        void setHours(int hours);
+        void setMinutes(int minutes);
+        void setSeconds(int seconds);
 };
 #endif
