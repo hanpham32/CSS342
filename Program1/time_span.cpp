@@ -95,7 +95,7 @@ TimeSpan& TimeSpan::operator=(const TimeSpan& ts)
     }
 }
 
-void TimeSpan::operator+(TimeSpan ts)
+TimeSpan TimeSpan::operator+(TimeSpan ts) // Must return a TimeSpan
 {
     hours_ += ts.getHours();
     minutes_ += ts.getMinutes();
