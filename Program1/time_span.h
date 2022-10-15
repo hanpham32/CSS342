@@ -17,24 +17,25 @@ class TimeSpan
         int getSeconds() const;
 
         friend ostream& operator << (ostream& os, const TimeSpan ts);
+        friend ostream& operator >> (istream& is, TimeSpan& ts);
         
         //Unary operators overload
-        TimeSpan operator + (TimeSpan& st);
-        TimeSpan operator - (TimeSpan& st);
+        TimeSpan operator + (TimeSpan& st) const;
+        TimeSpan operator - (TimeSpan& st) const;
 
         //Relational operators overload
         bool operator==(const TimeSpan& ts) const;
         bool operator!=(const TimeSpan& ts) const;
-        bool operator < (const TimeSpan& ts);
-        bool operator > (const TimeSpan& ts);
-        bool operator <= (const TimeSpan& ts);
-        bool operator >= (const TimeSpan& ts);
+        bool operator < (const TimeSpan& ts) const;
+        bool operator > (const TimeSpan& ts) const;
+        bool operator <= (const TimeSpan& ts) const;
+        bool operator >= (const TimeSpan& ts) const;
 
         //Assignment operators overload
         void operator=(const TimeSpan& ts);
 
-        void operator-=(TimeSpan& st);
-        void operator+=(TimeSpan& st);
+        TimeSpan& operator-=(const TimeSpan& st); // return reference object
+        TimeSpan& operator+=(const TimeSpan& st);
 
         
     private:
