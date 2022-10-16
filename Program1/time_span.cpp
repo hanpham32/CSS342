@@ -6,168 +6,221 @@ TimeSpan::TimeSpan() : hours_(0), minutes_(0), seconds_(0)
 {
 }
 
-TimeSpan::TimeSpan(float seconds) : hours_(0), minutes_(0)
+TimeSpan::TimeSpan(double seconds) : hours_(0), minutes_(0)
 {
-    ParseTimeSpan(0,0,seconds);
+    int total_seconds = CalculateTotalSeconds(0, 0, seconds);
+    seconds_ = seconds;
+    ParseTimeSpan(*this, total_seconds);
 }
 
-TimeSpan::TimeSpan(float minutes, float seconds) : hours_(0)
+TimeSpan::TimeSpan(double minutes, double seconds) : hours_(0)
 {
-    ParseTimeSpan(0, minutes, seconds);
+    int total_seconds = CalculateTotalSeconds(0, minutes, seconds);
+    seconds_ = seconds;
+    minutes_ = minutes;
+    ParseTimeSpan(*this, total_seconds);
 }
 
-TimeSpan::TimeSpan(float hours, float minutes, float seconds)
+TimeSpan::TimeSpan(double hours, double minutes, double seconds)
 {
-    ParseTimeSpan(hours, minutes, seconds);
+    int total_seconds = CalculateTotalSeconds(hours, minutes, seconds);
+    hours_ = hours;
+    minutes_ = minutes;
+    seconds_ = seconds;
+
+    ParseTimeSpan(*this, total_seconds);
 }
 
-int TimeSpan::getHours() const
+int TimeSpan::hours() const
 {
     return hours_;
 }
 
-int TimeSpan::getMinutes() const
+int TimeSpan::minutes() const
 {
     return minutes_;
 }
 
-int TimeSpan::getSeconds() const
+int TimeSpan::seconds() const
 {
     return seconds_;
 }
 
-void TimeSpan::setHours(int hours)
+void TimeSpan::set_time(int hours, int minutes, int seconds)
+{
+    int total_seconds = CalculateTotalSeconds(hours, minutes, seconds);
+    set_hours(hours);
+    set_minutes(minutes);
+    set_seconds(seconds);
+    ParseTimeSpan(*this, total_seconds);
+}
+
+void TimeSpan::set_hours(int hours)
 {
     hours_ = hours;
 }
 
-void TimeSpan::setMinutes(int minutes)
+void TimeSpan::set_minutes(int minutes)
 {
     minutes_ = minutes;
 }
 
-void TimeSpan::setSeconds(int seconds)
+void TimeSpan::set_seconds(int seconds)
 {
     seconds_ = seconds;
 }
 
-ostream& operator << (ostream& os, const TimeSpan ts)
+ostream &operator<<(ostream &os, const TimeSpan ts)
 {
-    return os << "Hours: " << ts.getHours() << ", Minutes: " << ts.getMinutes() << ", Seconds: " << ts.getSeconds();
+    return os << "Hours: " << ts.hours() << ", Minutes: " << ts.minutes() << ", Seconds: " << ts.seconds();
 }
 
-TimeSpan TimeSpan::operator+(TimeSpan& ts) // Must return a TimeSpan
+istream &operator>>(istream &is, TimeSpan ts)
 {
-    return TimeSpan(hours_ + ts.hours_, minutes_ + ts.minutes_, seconds_ + ts.seconds_);
+    int hours, minutes, seconds;
+    cout << "Please input hour(s): " << endl;
+    cin >> hours;
+    cout << "Please input minutes(s): " << endl;
+    cin >> minutes;
+    cout << "Please input seconds(s): " << endl;
+    cin >> seconds;
+    int total_seconds = ts.CalculateTotalSeconds(hours, minutes, seconds);
+    ts.ParseTimeSpan(ts, total_seconds);
+    return is;
 }
 
-TimeSpan TimeSpan::operator-(TimeSpan& ts) // Must return a TimeSpan
+bool TimeSpan::operator==(const TimeSpan &ts) const
 {
-    return TimeSpan(hours_ - ts.hours_, minutes_ - ts.minutes_, seconds_ - ts.seconds_);
-}
-
-bool TimeSpan::operator==(const TimeSpan& ts) const
-{
-    if ((hours_ == ts.hours_) && (minutes_ == ts.minutes_) && (seconds_ == ts.seconds_))
+    if ((hours() == ts.hours()) && (minutes() == ts.minutes()) && (seconds() == ts.seconds()))
     {
         return true;
-    } else
+    }
+    else
     {
         return false;
     }
 }
 
-bool TimeSpan::operator!=(const TimeSpan& ts) const
+bool TimeSpan::operator!=(const TimeSpan &ts) const
 {
-    if ((hours_ == ts.hours_) && (minutes_ == ts.minutes_) && (seconds_ == ts.seconds_))
+    if ((hours() == ts.hours()) && (minutes() == ts.minutes()) && (seconds() == ts.seconds()))
     {
         return false;
-    } else
+    }
+    else
     {
         return true;
     }
 }
 
-bool TimeSpan::operator < (const TimeSpan& ts)
+bool TimeSpan::operator<(const TimeSpan &ts) const
 {
-    float n1,n2;
-    n1 = CalculateTotalSeconds(hours_, minutes_, seconds_);
-    n2 = CalculateTotalSeconds(ts.hours_, ts.minutes_, ts.seconds_);
-    if (n1 > n2){
+    float n1, n2;
+    n1 = hours() * 3600 + minutes() * 60 + seconds();
+    n2 = ts.hours() * 3600 + ts.minutes() * 60 + ts.seconds();
+    if (n1 > n2)
+    {
         return false;
-    } else 
+    }
+    else
     {
         return true;
     }
 }
 
-bool TimeSpan::operator > (const TimeSpan& ts)
+bool TimeSpan::operator>(const TimeSpan &ts) const
 {
-    float n1,n2;
-    n1 = CalculateTotalSeconds(hours_, minutes_, seconds_);
-    n2 = CalculateTotalSeconds(ts.hours_, ts.minutes_, ts.seconds_);
-    if (n1 > n2){
+    float n1, n2;
+    n1 = hours() * 3600 + minutes() * 60 + seconds();
+    n2 = ts.hours() * 3600 + ts.minutes() * 60 + ts.seconds();
+    if (n1 > n2)
+    {
         return true;
-    } else 
+    }
+    else
     {
         return false;
     }
 }
 
-bool TimeSpan::operator <= (const TimeSpan& ts)
+bool TimeSpan::operator<=(const TimeSpan &ts) const
 {
-    float n1,n2;
-    n1 = CalculateTotalSeconds(hours_, minutes_, seconds_);
-    n2 = CalculateTotalSeconds(ts.hours_, ts.minutes_, ts.seconds_);
+    float n1, n2;
+    n1 = hours() * 3600 + minutes() * 60 + seconds();
+    n2 = ts.hours() * 3600 + ts.minutes() * 60 + ts.seconds();
     if ((n1 < n2) || (n1 == n2))
     {
         return true;
-    } else
+    }
+    else
     {
         return false;
     }
 }
 
-bool TimeSpan::operator >= (const TimeSpan& ts)
+bool TimeSpan::operator>=(const TimeSpan &ts) const
 {
-    float n1,n2;
-    n1 = CalculateTotalSeconds(hours_, minutes_, seconds_);
-    n2 = CalculateTotalSeconds(ts.hours_, ts.minutes_, ts.seconds_);
+    float n1, n2;
+    n1 = hours() * 3600 + minutes() * 60 + seconds();
+    n2 = ts.hours() * 3600 + ts.minutes() * 60 + ts.seconds();
     if ((n1 > n2) || (n1 == n2))
     {
         return true;
-    } else
+    }
+    else
     {
         return false;
     }
 }
 
-void TimeSpan::operator=(const TimeSpan& ts)
+void TimeSpan::operator=(const TimeSpan &ts)
 {
-    hours_ = ts.hours_;
-    minutes_ = ts.minutes_;
-    seconds_ = ts.seconds_;
+    set_hours(ts.hours());
+    set_minutes(ts.minutes());
+    set_seconds(ts.seconds());
 }
 
-void TimeSpan::operator+=(TimeSpan& ts)
+TimeSpan TimeSpan::operator+=(const TimeSpan &ts)
 {
-    hours_ += ts.hours_;
-    minutes_ += ts.minutes_;
-    seconds_ += ts.seconds_;
-    ParseTimeSpan(hours_, minutes_, seconds_);
+    set_hours(hours() + ts.hours());
+    set_minutes(minutes() + ts.minutes());
+    set_seconds(seconds() + ts.seconds());
+    int total_seconds = CalculateTotalSeconds(hours(), minutes(), seconds());
+    ParseTimeSpan(*this, total_seconds);
+    return *this;
 }
 
-void TimeSpan::operator-=(TimeSpan& ts)
+TimeSpan TimeSpan::operator-=(const TimeSpan &ts)
 {
-    hours_ -= ts.hours_;
-    minutes_ -= ts.minutes_;
-    seconds_ -= ts.seconds_;
-    ParseTimeSpan(hours_, minutes_, seconds_);
+    set_hours(hours() - ts.hours());
+    set_minutes(minutes() - ts.seconds());
+    set_seconds(seconds() - ts.seconds());
+    int total_seconds = CalculateTotalSeconds(hours(), minutes(), seconds());
+    ParseTimeSpan(*this, total_seconds);
+    return *this;
 }
 
-float TimeSpan::CalculateTotalSeconds(float hours, float minutes, float seconds)
+TimeSpan TimeSpan::operator+(TimeSpan &ts)
 {
-    float total_seconds = 0;
+    TimeSpan result = *this;
+    result += ts;
+    int total_seconds = CalculateTotalSeconds(result.hours(), result.minutes(), result.seconds());
+    ParseTimeSpan(result, total_seconds);
+    return result;
+}
+
+TimeSpan TimeSpan::operator-(TimeSpan &ts)
+{
+    TimeSpan result = *this;
+    result -= ts;
+    int total_seconds = CalculateTotalSeconds(result.hours(), result.minutes(), result.seconds());
+    ParseTimeSpan(result, total_seconds);
+    return result;
+}
+
+double TimeSpan::CalculateTotalSeconds(double hours, double minutes, double seconds)
+{
+    double total_seconds = 0;
     total_seconds += (hours * 3600);
     total_seconds += (minutes * 60);
     total_seconds += seconds;
@@ -175,24 +228,23 @@ float TimeSpan::CalculateTotalSeconds(float hours, float minutes, float seconds)
     return total_seconds;
 }
 
-void TimeSpan::ParseTimeSpan(float hours, float minutes, float seconds)
+void TimeSpan::ParseTimeSpan(TimeSpan &ts, int total_seconds)
 {
-    float total_seconds = CalculateTotalSeconds(hours, minutes, seconds);
     if (total_seconds == 0)
     {
-        setSeconds(0);
-        setMinutes(0);
-        setHours(0);
+        ts.set_seconds(0);
+        ts.set_minutes(0);
+        ts.set_hours(0);
     }
     if ((total_seconds >= 3600) || (total_seconds <= -3600))
     {
-        setHours(total_seconds / 3600);
-        total_seconds = fmod(total_seconds,3600);
+        ts.set_hours(total_seconds / 3600); // 278106 / 3600 + 77.251666
+        total_seconds = fmod(total_seconds, 3600);
     }
     if ((total_seconds >= 60) || (total_seconds <= -60))
     {
-        setMinutes(total_seconds / 60);
-        total_seconds = fmod(total_seconds,60);
+        ts.set_minutes(total_seconds / 60);
+        total_seconds = fmod(total_seconds, 60);
     }
-    setSeconds(total_seconds);
+    ts.set_seconds(total_seconds);
 }
