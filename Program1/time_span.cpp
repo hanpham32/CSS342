@@ -9,25 +9,24 @@ TimeSpan::TimeSpan() : hours_(0), minutes_(0), seconds_(0)
 TimeSpan::TimeSpan(double seconds) : hours_(0), minutes_(0)
 {
     int total_seconds = CalculateTotalSeconds(0, 0, seconds);
-    seconds_ = seconds;
+    seconds_ = 0;
     ParseTimeSpan(*this, total_seconds);
 }
 
 TimeSpan::TimeSpan(double minutes, double seconds) : hours_(0)
 {
     int total_seconds = CalculateTotalSeconds(0, minutes, seconds);
-    seconds_ = seconds;
-    minutes_ = minutes;
+    seconds_ = 0;
+    minutes_ = 0;
     ParseTimeSpan(*this, total_seconds);
 }
 
 TimeSpan::TimeSpan(double hours, double minutes, double seconds)
 {
     int total_seconds = CalculateTotalSeconds(hours, minutes, seconds);
-    hours_ = hours;
-    minutes_ = minutes;
-    seconds_ = seconds;
-
+    hours_ = 0;
+    minutes_ = 0;
+    seconds_ = 0;
     ParseTimeSpan(*this, total_seconds);
 }
 
