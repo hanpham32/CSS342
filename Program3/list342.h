@@ -5,6 +5,7 @@ Date: 11/11/22
 List342.h
 */
 #include <string>
+using namespace std;
 
 #ifndef LIST342_H_
 #define LIST342_H_
@@ -23,7 +24,7 @@ public:
     List342(const List342 &source);
     ~List342();
 
-    bool BuildList(std::string file_name);
+    bool BuildList(string file_name);
     bool Insert(T *obj);
     bool Remove(T target, T &result);
     bool Peek(T target, T &result) const;

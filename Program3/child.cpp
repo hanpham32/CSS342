@@ -1,7 +1,7 @@
 
-#include "Child.h"
+#include "child.h"
 
-//Consturctors and Desctructor
+// Consturctors and Desctructor
 
 Child::Child()
 {
@@ -50,15 +50,15 @@ Child::~Child()
 bool Child::operator==(const Child &c) const
 {
 	return ((firstName == c.firstName) &&
-		(lastName == c.lastName) &&
-		(age == c.age));
+			(lastName == c.lastName) &&
+			(age == c.age));
 }
 
 bool Child::operator!=(const Child &c) const
 {
 	return ((firstName != c.firstName) ||
-		(lastName != c.lastName) ||
-		(age != c.age));
+			(lastName != c.lastName) ||
+			(age != c.age));
 }
 
 bool Child::operator<(const Child &c) const
@@ -109,13 +109,13 @@ bool Child::operator>(const Child &c) const
 	}
 }
 
-ostream& operator<<(ostream &outStream, const Child &c)
+ostream &operator<<(ostream &outStream, const Child &c)
 {
 	outStream << c.firstName << c.lastName << c.age;
 	return outStream;
 }
 
-istream& operator>>(istream &inStream, Child &c)
+istream &operator>>(istream &inStream, Child &c)
 {
 	inStream >> c.firstName;
 	inStream >> c.lastName;
