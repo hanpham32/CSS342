@@ -72,11 +72,12 @@ template <class T>
 ostream &operator<<(ostream &stream, const List342<T> &list)
 {
     Node<T> *p_node = list.head_;
-    while (p_node->next != nullptr)
+    while (p_node != nullptr)
     {
-        stream << p_node->data << " ";
+        stream << *p_node->data << " ";
         p_node = p_node->next;
     }
+    delete p_node;
     return stream;
 }
 
@@ -102,18 +103,82 @@ bool List342<T>::BuildList(string file_name)
     return false;
 }
 
-/// @brief Insert an object to List342
+/// @brief Insert object to list in sorted order
 /// @tparam T
-/// @param obj
+/// @param *obj
 /// @return true if successfullly inserted, otherwise false
 template <class T>
 bool List342<T>::Insert(T *obj)
 {
-    cout << "helloo" << endl;
     Node<T> *ins_node = new Node<T>();
     ins_node->data = obj;
-    cout << obj->getName() << endl;
-    ins_node->next = head_;
-    head_ = ins_node;
+    if (head_ == nullptr)
+    {
+        head_ = ins_node;
+        return true;
+    }
+    if (*obj <= *head_->data)
+    {
+        ins_node->next = head_;
+        head_ = ins_node;
+        return true;
+    }
+    Node<T> *p_node = head_;
+    while ((p_node->next != nullptr) && (*p_node->next->data < *obj))
+    {
+        p_node = p_node->next;
+    }
+    ins_node->next = p_node->next;
+    p_node->next = ins_node;
+    return true;
+}
+
+/// @brief Return size of the list
+/// @tparam T
+/// @return size of list
+template <class T>
+int List342<T>::Size() const
+{
+    Node<T> *p_node = head_;
+    if (p_node == nullptr)
+    {
+        return 0;
+    }
+    else
+    {
+        int count = 0;
+        while (p_node != nullptr)
+        {
+            count++;
+            p_node = p_node->next;
+        }
+        return count;
+    }
+}
+
+template <class T>
+bool List342<T>::Remove(T target, T &result)
+{
+    if (head_ == nullptr)
+    {
+        return false;
+    }
+    if (*head_->data == target)
+    {
+        Node<T> *temp = head_;
+        head_ = temp->next;
+        result = *temp->data;
+        delete temp;
+        return true;
+    }
+    Node<T> *p_node = head_;
+    while ((p_node->next != nullptr) && (*p_node->next->data != target))
+    {
+        p_node = p_node->next;
+    }
+    result = *p_node->next->data;
+    Node<T> *temp = p_node;
+    p_node = p_node->next;
+    delete temp;
     return true;
 }
