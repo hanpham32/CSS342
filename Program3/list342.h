@@ -27,7 +27,7 @@ class List342
 public:
     List342();
     List342(const List342<T> &source);
-    // ~List342();
+    ~List342();
 
     bool BuildList(string file_name);
     bool Insert(T *obj);
@@ -36,6 +36,7 @@ public:
     int Size() const;
     void DeleteList();
     bool Merge(List342<T> &list1);
+    bool Pop(T &value);
 
     List342<T> operator+(List342<T> &rhs);
     List342<T> operator+=(const List342<T> &rhs);
@@ -54,6 +55,14 @@ private:
 template <class T>
 List342<T>::List342() : head_(nullptr)
 {
+}
+
+template <class T>
+List342<T>::~List342()
+{
+    T a;
+    while (Pop(a))
+        ;
 }
 
 // template <class T>
@@ -88,19 +97,39 @@ ostream &operator<<(ostream &stream, const List342<T> &list)
 template <class T>
 bool List342<T>::BuildList(string file_name)
 {
-    fstream newfile;
-    newfile.open(file_name, ios::in);
-    if (newfile.is_open())
+    ifstream in_file;
+    T obj;
+    in_file.open(file_name);
+    while (!in_file.eof())
     {
-        string tp;
-        while (getline(newfile, tp))
-        {
-            cout << tp << " ";
-        }
-        newfile.close();
-        return true;
+        in_file >> obj;
+        // this->Insert(obj);
+        cout << obj << endl;
     }
-    return false;
+    in_file.close();
+    if (in_file.is_open())
+    {
+        cout << "Stream could not close!" << endl;
+    }
+    return true;
+}
+
+/// @brief pop the first value in the list
+/// @tparam T
+/// @param value
+/// @return return by passed in reference
+template <class T>
+bool List342<T>::Pop(T &value)
+{
+    if (head_ == nullptr)
+    {
+        return false;
+    }
+    Node<T> *temp = head_;
+    head_ = head_->next;
+    value = (*temp->data);
+    delete temp;
+    return true;
 }
 
 /// @brief Insert object to list in sorted order
@@ -156,6 +185,11 @@ int List342<T>::Size() const
     }
 }
 
+/// @brief remove target value
+/// @tparam T
+/// @param target
+/// @param result
+/// @return return passed in reference if found
 template <class T>
 bool List342<T>::Remove(T target, T &result)
 {
