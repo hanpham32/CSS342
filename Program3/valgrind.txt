@@ -1,15 +1,1657 @@
-==205845== Memcheck, a memory error detector
-==205845== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==205845== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==205845== Command: ./a
-==205845== Parent PID: 188313
-==205845== 
-==205845== 
-==205845== HEAP SUMMARY:
-==205845==     in use at exit: 0 bytes in 0 blocks
-==205845==   total heap usage: 4 allocs, 4 frees, 82,392 bytes allocated
-==205845== 
-==205845== All heap blocks were freed -- no leaks are possible
-==205845== 
-==205845== For lists of detected and suppressed errors, rerun with: -s
-==205845== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==31239== Memcheck, a memory error detector
+==31239== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31239== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==31239== Command: ./a
+==31239== Parent PID: 8633
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC38: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C638: List342<Child>::Insert(Child*) (list342.h:262)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6258 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC38: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6278 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44DE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6278 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44F1: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6270 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x484221D: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A44FB: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6280 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC58: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C638: List342<Child>::Insert(Child*) (list342.h:262)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6250 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x484221D: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C638: List342<Child>::Insert(Child*) (list342.h:262)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6260 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC58: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6270 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x484221D: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C65F: List342<Child>::Insert(Child*) (list342.h:267)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Address 0x4db6280 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A221C: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6258 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A2270: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6250 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B30: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6260 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A221C: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6278 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A2270: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6270 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B30: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6280 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B60: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6284 is 52 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10C988: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db6290 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B789: main (main.cpp:40)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66c8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44DA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66c8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44F4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66c0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A44FB: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66d0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66c8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66c0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10C6EC: List342<Child>::Insert(Child*) (list342.h:276)
+==31239==    by 0x10C8B7: List342<Child>::Merge(List342<Child>&) (list342.h:426)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Address 0x4db66d0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10C988: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Address 0x4db6600 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B3F: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Address 0x4db66b4 is 20 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B60: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Address 0x4db66b6 is 22 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x4842AD6: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Address 0x4db6a50 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B3F: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A2284: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10D4D7: List342<Child>::Pop(Child&) (list342.h:236)
+==31239==    by 0x10C880: List342<Child>::Merge(List342<Child>&) (list342.h:423)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Address 0x4db6b34 is 52 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7A2: main (main.cpp:41)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6da8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC38: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6da8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6da8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC58: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6da0 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6da0 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6db0 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC38: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC58: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dc0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dc0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dd0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x484221D: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6dd0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10A804: Child::operator==(Child const&) const (child.cpp:54)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6de0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10A80B: Child::operator==(Child const&) const (child.cpp:54)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db6de0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x4842248: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db7150 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x484224B: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7FB: Child::operator==(Child const&) const (child.cpp:53)
+==31239==    by 0x10CDB1: List342<Child>::operator==(List342<Child> const&) const (list342.h:140)
+==31239==    by 0x10C853: List342<Child>::Merge(List342<Child>&) (list342.h:418)
+==31239==    by 0x10B7D4: main (main.cpp:43)
+==31239==  Address 0x4db7150 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F54: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cc8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F58: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cc0 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B60: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cd0 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B6E: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cd2 is 18 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F54: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6ce8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F58: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6ce0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B60: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cf0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842B6E: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6cf2 is 50 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10AA66: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6d00 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B30: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6dd0 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B30: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db6e90 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B3F: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B7FF: main (main.cpp:44)
+==31239==  Address 0x4db7234 is 52 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C9DE: List342<Child>::Remove(Child, Child&) (list342.h:371)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6cc8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A846: Child::operator!=(Child const&) const (child.cpp:59)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6da8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10CA82: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44DA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10CA82: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44F4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10ACE1: bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6232)
+==31239==    by 0x10A8EC: Child::operator<(Child const&) const (child.cpp:72)
+==31239==    by 0x10CA82: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6dc0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A846: Child::operator!=(Child const&) const (child.cpp:59)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6e88 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A846: Child::operator!=(Child const&) const (child.cpp:59)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6e80 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A846: Child::operator!=(Child const&) const (child.cpp:59)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6e90 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A865: Child::operator!=(Child const&) const (child.cpp:60)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f88 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A865: Child::operator!=(Child const&) const (child.cpp:60)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f88 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10ACB5: bool std::operator!=<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6194)
+==31239==    by 0x10A865: Child::operator!=(Child const&) const (child.cpp:60)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f80 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10A86E: Child::operator!=(Child const&) const (child.cpp:61)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6fa0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A9EA: Child::operator>(Child const&) const (child.cpp:102)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f88 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A9EA: Child::operator>(Child const&) const (child.cpp:102)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f88 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A9EA: Child::operator>(Child const&) const (child.cpp:102)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f80 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10AB76: std::char_traits<char>::compare(char const*, char const*, unsigned long) (char_traits.h:332)
+==31239==    by 0x10AC75: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A9EA: Child::operator>(Child const&) const (child.cpp:102)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f90 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44DA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA01: Child::operator>(Child const&) const (child.cpp:104)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f68 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44F4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA01: Child::operator>(Child const&) const (child.cpp:104)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f60 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A44FB: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA01: Child::operator>(Child const&) const (child.cpp:104)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f70 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A221C: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f68 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A2270: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C968: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f60 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A221C: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f88 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A2270: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x49A25FD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10C983: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6f80 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10C988: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B84D: main (main.cpp:46)
+==31239==  Address 0x4db6fa0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C9DE: List342<Child>::Remove(Child, Child&) (list342.h:371)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db6cc8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C9DE: List342<Child>::Remove(Child, Child&) (list342.h:371)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db6cc0 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC49: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10CA82: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db6dc8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A3EC4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::data() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC67: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6155)
+==31239==    by 0x10A8B8: Child::operator<(Child const&) const (child.cpp:66)
+==31239==    by 0x10CA82: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db6dc0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10A86E: Child::operator!=(Child const&) const (child.cpp:61)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db7080 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10C988: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B895: main (main.cpp:47)
+==31239==  Address 0x4db7080 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44DA: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA1E: Child::operator>(Child const&) const (child.cpp:108)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B8DD: main (main.cpp:48)
+==31239==  Address 0x4db7148 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A44F4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA1E: Child::operator>(Child const&) const (child.cpp:108)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B8DD: main (main.cpp:48)
+==31239==  Address 0x4db7140 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4842219: bcmp (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A44FB: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AD69: bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6270)
+==31239==    by 0x10AA1E: Child::operator>(Child const&) const (child.cpp:108)
+==31239==    by 0x10CABE: List342<Child>::Remove(Child, Child&) (list342.h:384)
+==31239==    by 0x10B8DD: main (main.cpp:48)
+==31239==  Address 0x4db7150 is 48 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10A86E: Child::operator!=(Child const&) const (child.cpp:61)
+==31239==    by 0x10CA64: List342<Child>::Remove(Child, Child&) (list342.h:380)
+==31239==    by 0x10B925: main (main.cpp:49)
+==31239==  Address 0x4db6ec0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10C988: Child::operator=(Child const&) (child.h:7)
+==31239==    by 0x10CBA1: List342<Child>::Remove(Child, Child&) (list342.h:403)
+==31239==    by 0x10B925: main (main.cpp:49)
+==31239==  Address 0x4db6ec0 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F54: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6cc8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F58: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6cc0 is 0 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F54: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6ce8 is 40 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A4F58: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6ce0 is 32 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 4
+==31239==    at 0x10AA66: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6d00 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 2
+==31239==    at 0x4842B3F: memmove (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x49A0B27: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10B9A5: main (main.cpp:53)
+==31239==  Address 0x4db6db4 is 20 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 8
+==31239==    at 0x49A27D4: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size() const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AC29: __gnu_cxx::__enable_if<std::__is_char<char>::__value, bool>::__type std::operator==<char>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:6154)
+==31239==    by 0x10A7DC: Child::operator==(Child const&) const (child.cpp:52)
+==31239==    by 0x10C638: List342<Child>::Insert(Child*) (list342.h:262)
+==31239==    by 0x10D5B2: List342<Child>::operator+=(List342<Child> const&) (list342.h:117)
+==31239==    by 0x10CC1D: List342<Child>::operator+(List342<Child>&) (list342.h:127)
+==31239==    by 0x10BA65: main (main.cpp:59)
+==31239==  Address 0x4db6cc8 is 8 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== 
+==31239== More than 100 errors detected.  Subsequent errors
+==31239== will still be recorded, but in less detail than before.
+==31239== Invalid read of size 4
+==31239==    at 0x10A80B: Child::operator==(Child const&) const (child.cpp:54)
+==31239==    by 0x10C735: List342<Child>::Insert(Child*) (list342.h:281)
+==31239==    by 0x10D5B2: List342<Child>::operator+=(List342<Child> const&) (list342.h:117)
+==31239==    by 0x10CC1D: List342<Child>::operator+(List342<Child>&) (list342.h:127)
+==31239==    by 0x10BA65: main (main.cpp:59)
+==31239==  Address 0x4db7240 is 64 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C8D5: List342<Child>::Merge(List342<Child>&) (list342.h:427)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10C88E: List342<Child>::Merge(List342<Child>&) (list342.h:425)
+==31239==    by 0x10B7BB: main (main.cpp:42)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4AEE01E: _IO_default_xsputn (genops.c:399)
+==31239==    by 0x4AEE01E: _IO_default_xsputn (genops.c:370)
+==31239==    by 0x4AEB6F9: _IO_new_file_xsputn (fileops.c:1265)
+==31239==    by 0x4AEB6F9: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==31239==    by 0x4ADF3C0: fwrite (iofwrite.c:39)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA48: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10BCFB: main (main.cpp:84)
+==31239==  Address 0x4dba130 is 16 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D3A1: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:211)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D34B: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:208)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x4AEB70C: _IO_new_file_xsputn (fileops.c:1219)
+==31239==    by 0x4AEB70C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==31239==    by 0x4ADF3C0: fwrite (iofwrite.c:39)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10BCFB: main (main.cpp:84)
+==31239==  Address 0x4dba156 is 54 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D3A1: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:211)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D34B: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:208)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x48436A0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x4AEB631: _IO_new_file_xsputn (fileops.c:1236)
+==31239==    by 0x4AEB631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==31239==    by 0x4ADF3C0: fwrite (iofwrite.c:39)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10BCFB: main (main.cpp:84)
+==31239==  Address 0x4dba156 is 54 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D3A1: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:211)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D34B: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:208)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239== 
+==31239== Invalid read of size 1
+==31239==    at 0x48436B2: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x4AEB631: _IO_new_file_xsputn (fileops.c:1236)
+==31239==    by 0x4AEB631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==31239==    by 0x4ADF3C0: fwrite (iofwrite.c:39)
+==31239==    by 0x4992823: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==31239==    by 0x10AA5E: operator<<(std::ostream&, Child const&) (child.cpp:114)
+==31239==    by 0x10C7E7: std::ostream& operator<< <Child>(std::ostream&, List342<Child> const&) (list342.h:175)
+==31239==    by 0x10BCFB: main (main.cpp:84)
+==31239==  Address 0x4dba154 is 52 bytes inside a block of size 72 free'd
+==31239==    at 0x483D1CF: operator delete(void*, unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D3A1: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:211)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239==  Block was alloc'd at
+==31239==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31239==    by 0x10D34B: List342<Child>::BuildList(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (list342.h:208)
+==31239==    by 0x10BCD6: main (main.cpp:83)
+==31239== 
+==31239== 
+==31239== HEAP SUMMARY:
+==31239==     in use at exit: 0 bytes in 0 blocks
+==31239==   total heap usage: 94 allocs, 94 frees, 94,032 bytes allocated
+==31239== 
+==31239== All heap blocks were freed -- no leaks are possible
+==31239== 
+==31239== For lists of detected and suppressed errors, rerun with: -s
+==31239== ERROR SUMMARY: 2110 errors from 105 contexts (suppressed: 0 from 0)

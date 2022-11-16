@@ -1,5 +1,7 @@
 {
     "files.associations": {
         "iosfwd": "cpp"
-    }
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false
 }
