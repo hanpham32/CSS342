@@ -3,6 +3,8 @@
 
 void MergeSort(std::vector<int> &vec, int first, int last);
 void Merge(std::vector<int> &vec, int first, int mid, int last);
+void QuickSort(std::vector<int> &vec, int first, int last);
+void InsertionSort(std::vector<int> &vec, int first, int last);
 
 int main()
 {
@@ -66,5 +68,57 @@ void MergeSort(std::vector<int> &vec, int first, int last)
         MergeSort(vec, first, mid);
         MergeSort(vec, mid + 1, last);
         Merge(vec, first, mid, last);
+    }
+}
+
+void QuickSort(std::vector<int> &vec, int first, int last)
+{
+    if (last - first < 5)
+    {
+        InsertionSort(vec, first, last);
+        return;
+    }
+    int mid = (first + last) / 2;
+    // sort first, mid, last values
+    if (vec[first] > vec[last])
+    {
+        std::swap(vec[first], vec[last]);
+    }
+    if (vec[first] > vec[mid])
+    {
+        std::swap(vec[first], vec[mid]);
+    }
+    if (vec[mid] > vec[last])
+    {
+        std::swap(vec[mid], vec[last]);
+    }
+    int pivot = vec[mid];
+    std::swap(vec[mid], vec[last - 1]);
+    int left = first + 1;
+    int right = last - 2;
+    bool done = false;
+    while (!done)
+    {
+        while (vec[left] < pivot)
+        {
+            left++;
+        }
+        while (vec[right] > pivot)
+        {
+            right--;
+        }
+        if (right > left)
+        {
+            std::swap(vec[left], vec[right]);
+            left++;
+            right--;
+        }
+        else
+        {
+            done = true;
+        }
+        std::swap(vec[left], vec[last - 1]);
+        QuickSort(vec, first, left - 1);
+        QuickSort(vec, left + 1, last);
     }
 }
