@@ -18,42 +18,41 @@ Last Modified:
 # List of sort algorithms:
 ## [x]: done; [~]: working; []: not started; [?]: bug found
 
-[~] BubbleSort
+[] BubbleSort
 [x] InsertionSort
-[?] MergeSort
+[x] MergeSort
 [] IterativeMergeSort (non-recursive)
-[~] QuickSort
+[?] QuickSort
 [] ShellSort
 */
 
-class Sorts
+void Merge(std::vector<int> &vec, int first, int mid, int last);
+void InsertionSort(std::vector<int> &vec, int first, int last);
+void BubbleSort(std::vector<int> &vec, int first, int last);
+
+void InsertionSort(std::vector<int> &vec, int first, int last)
 {
-public:
-    void Merge(std::vector<int> &vec, int first, int mid, int last);
-    void MergeSort(std::vector<int> &vec, int first, int last);
-    void InsertionSort(std::vector<int> &vec, int first, int last);
-    void QuickSort(std::vector<int> &vec, int first, int last);
-    void PrintList(std::vector<int> &vec);
-
-private:
-};
-
-#endif
-
-void Sorts::PrintList(std::vector<int> &vec)
-{
-    for (int i = 0; i < vec.size(); i++)
+    int key, j;
+    for (int i = first + 1; i < last + 1; i++)
     {
-        std::cout << vec[i] << " ";
+        key = vec[i];
+        j = i - 1;
+
+        while (j >= 0 && vec[j] > key)
+        {
+            vec[j + 1] = vec[j];
+            j = j - 1;
+        }
+        vec[j + 1] = key;
     }
-    std::cout << "\n";
 }
 
-void Sorts::QuickSort(std::vector<int> &vec, int first, int last)
+void QuickSort(std::vector<int> &vec, int first, int last)
 {
     if (last - first < 5)
     {
         InsertionSort(vec, first, last);
+        return;
     }
     int mid = (first + last) / 2;
     if (vec[first] > vec[last])
@@ -64,13 +63,13 @@ void Sorts::QuickSort(std::vector<int> &vec, int first, int last)
     {
         std::swap(vec[first], vec[mid]);
     }
-    if (vec[mid] > vec[last])
+    else if (vec[mid] > vec[last])
     {
         std::swap(vec[mid], vec[last]);
     }
-    int pivot = mid;
+    int pivot = vec[mid];
     std::swap(vec[mid], vec[last - 1]);
-    int left = left + 1;
+    int left = first + 1;
     int right = last - 2;
     bool done = false;
     while (!done)
@@ -99,87 +98,49 @@ void Sorts::QuickSort(std::vector<int> &vec, int first, int last)
     }
 }
 
-void Sorts::InsertionSort(std::vector<int> &vec, int first, int last)
+void Merge(std::vector<int> &vec, int first, int mid, int last)
 {
-    int size = vec.size();
-    for (int i = 1; i < size; i++)
+    int size = last - first + 1;
+    int *tmp_arr;
+    tmp_arr = new int[size];
+    int first1 = first, last1 = mid;
+    int first2 = mid + 1, last2 = last;
+    int index = 0;
+    while ((first1 <= last1) && (first2 <= last2))
     {
-        if (vec[i] < vec[i - 1])
+        if (vec[first1] < vec[first2])
         {
-            int index = i;
-            while (vec[index] < vec[index - 1])
-            {
-                std::swap(vec[index], vec[index - 1]);
-                index--;
-            }
-        }
-    }
-}
-
-/// @brief Merge a sorted array
-/// @param vec
-/// @param first
-/// @param mid
-/// @param last
-void Sorts::Merge(std::vector<int> &vec, int first, int mid, int last)
-{
-    int size_subarray_one = mid - first + 1;
-    int size_subarray_two = last - mid;
-
-    int *left_array = new int[size_subarray_one];
-    int *right_array = new int[size_subarray_two];
-
-    // Copy from vec to the sub_arrays
-    for (int i = 0; i < size_subarray_one; i++)
-    {
-        left_array[i] = vec[first + i];
-    }
-    for (int j = 0; j < size_subarray_two; j++)
-    {
-        right_array[j] = vec[mid + 1 + j];
-    }
-
-    // Indexes
-    int index_subarray_one = 0, index_subarray_two = 0;
-    int index_merged_array = first;
-
-    // PrintList(vec);
-    // std::cout << "first: " << first << ", mid: " << mid << ", last: " << last << std::endl;
-
-    while ((index_subarray_one <= size_subarray_one) && (index_subarray_two <= size_subarray_two))
-    {
-        if (vec[index_subarray_one] < vec[index_subarray_two])
-        {
-            vec[index_merged_array] = left_array[index_subarray_one];
-            index_subarray_two++;
+            tmp_arr[index] = vec[first1];
+            first1++;
         }
         else
         {
-            vec[index_merged_array] = right_array[index_subarray_two];
-            index_subarray_two++;
+            tmp_arr[index] = vec[first2];
+            first2++;
         }
-        index_merged_array++;
+        index++;
     }
-
-    while (index_subarray_one <= size_subarray_one)
+    while (first1 <= last1)
     {
-        vec[index_merged_array] = left_array[index_subarray_one];
-        index_merged_array++;
-        index_subarray_one++;
+        tmp_arr[index] = vec[first1];
+        first1++;
+        index++;
     }
-
-    while (index_subarray_two <= size_subarray_two)
+    while (first2 <= last2)
     {
-        vec[index_merged_array] = right_array[index_subarray_two];
-        index_merged_array++;
-        index_subarray_two++;
+        tmp_arr[index] = vec[first2];
+        first2++;
+        index++;
     }
-
-    delete[] left_array;
-    delete[] right_array;
+    for (index = 0; index < size; index++)
+    {
+        vec[first] = tmp_arr[index];
+        first++;
+    }
+    delete[] tmp_arr;
 }
 
-void Sorts::MergeSort(std::vector<int> &vec, int first, int last)
+void MergeSort(std::vector<int> &vec, int first, int last)
 {
     if (first < last)
     {
@@ -189,3 +150,51 @@ void Sorts::MergeSort(std::vector<int> &vec, int first, int last)
         Merge(vec, first, mid, last);
     }
 }
+
+void IterativeMergeSort(std::vector<int> &vec, int first, int last)
+{
+    int curr_size;
+    int left_start;
+
+    for (curr_size = 1; curr_size <= last; curr_size = 2 * curr_size)
+    {
+        for (left_start = first; left_start < last; left_start += 2 * curr_size)
+        {
+            int mid = std::min(left_start + curr_size - 1, last);
+
+            int right_end = std::min(left_start + 2 * curr_size - 1, last);
+
+            Merge(vec, left_start, mid, right_end);
+        }
+    }
+}
+
+void BubbleSort(std::vector<int> &vec, int first, int last)
+{
+    for (int i = first; i < last; i++)
+    {
+        for (int j = 0; j < last - i; j++)
+        {
+            if (vec[j] > vec[j + 1])
+                std::swap(vec[j], vec[j + 1]);
+        }
+    }
+}
+
+void ShellSort(std::vector<int> &vec, int first, int last)
+{
+    for (int gap = (last + 1) / 2; gap > 0; gap = (gap == 2) ? 1 : int(gap / 2.2))
+    {
+        for (int i = gap; i < (last + 1); i++)
+        {
+            int tmp = vec[i];
+            int j = i;
+            for (; (j >= gap) && (tmp < vec[j - gap]); j -= gap)
+            {
+                vec[j] = vec[j - gap];
+            }
+            vec[j] = tmp;
+        }
+    }
+}
+#endif
