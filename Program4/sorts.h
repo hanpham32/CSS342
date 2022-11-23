@@ -18,37 +18,33 @@ Last Modified:
 # List of sort algorithms:
 ## [x]: done; [~]: working; []: not started; [?]: bug found
 
-[] BubbleSort
+[x] BubbleSort
 [x] InsertionSort
 [x] MergeSort
-[] IterativeMergeSort (non-recursive)
-[?] QuickSort
-[] ShellSort
+[x] IterativeMergeSort (non-recursive)
+[x] QuickSort
+[x] ShellSort
 */
 
-void Merge(std::vector<int> &vec, int first, int mid, int last);
-void InsertionSort(std::vector<int> &vec, int first, int last);
-void BubbleSort(std::vector<int> &vec, int first, int last);
-
-void InsertionSort(std::vector<int> &vec, int first, int last)
+static void InsertionSort(std::vector<int> &vec, int first, int last)
 {
-    int key, j;
-    for (int i = first + 1; i < last + 1; i++)
+    for (int i = first; i <= last; i++)
     {
-        key = vec[i];
-        j = i - 1;
+        int key = vec[i];
+        int j = i - 1;
 
-        while (j >= 0 && vec[j] > key)
+        while (j >= first && vec[j] > key)
         {
             vec[j + 1] = vec[j];
-            j = j - 1;
+            j--;
         }
         vec[j + 1] = key;
     }
 }
 
-void QuickSort(std::vector<int> &vec, int first, int last)
+static void QuickSort(std::vector<int> &vec, int first, int last)
 {
+    // If subarray is less than 5, sort with InsertionSort
     if (last - first < 5)
     {
         InsertionSort(vec, first, last);
@@ -63,7 +59,7 @@ void QuickSort(std::vector<int> &vec, int first, int last)
     {
         std::swap(vec[first], vec[mid]);
     }
-    else if (vec[mid] > vec[last])
+    if (vec[mid] > vec[last])
     {
         std::swap(vec[mid], vec[last]);
     }
@@ -92,13 +88,13 @@ void QuickSort(std::vector<int> &vec, int first, int last)
         {
             done = true;
         }
-        std::swap(vec[left], vec[last - 1]);
-        QuickSort(vec, first, left - 1);
-        QuickSort(vec, left + 1, last);
     }
+    std::swap(vec[left], vec[last - 1]);
+    QuickSort(vec, first, left - 1);
+    QuickSort(vec, left + 1, last);
 }
 
-void Merge(std::vector<int> &vec, int first, int mid, int last)
+static void Merge(std::vector<int> &vec, int first, int mid, int last)
 {
     int size = last - first + 1;
     int *tmp_arr;
@@ -140,7 +136,7 @@ void Merge(std::vector<int> &vec, int first, int mid, int last)
     delete[] tmp_arr;
 }
 
-void MergeSort(std::vector<int> &vec, int first, int last)
+static void MergeSort(std::vector<int> &vec, int first, int last)
 {
     if (first < last)
     {
@@ -151,7 +147,7 @@ void MergeSort(std::vector<int> &vec, int first, int last)
     }
 }
 
-void IterativeMergeSort(std::vector<int> &vec, int first, int last)
+static void IterativeMergeSort(std::vector<int> &vec, int first, int last)
 {
     int curr_size;
     int left_start;
@@ -169,11 +165,11 @@ void IterativeMergeSort(std::vector<int> &vec, int first, int last)
     }
 }
 
-void BubbleSort(std::vector<int> &vec, int first, int last)
+static void BubbleSort(std::vector<int> &vec, int first, int last)
 {
-    for (int i = first; i < last; i++)
+    for (int i = first; i <= last; i++)
     {
-        for (int j = 0; j < last - i; j++)
+        for (int j = first; j < last - i; j++)
         {
             if (vec[j] > vec[j + 1])
                 std::swap(vec[j], vec[j + 1]);
@@ -181,11 +177,11 @@ void BubbleSort(std::vector<int> &vec, int first, int last)
     }
 }
 
-void ShellSort(std::vector<int> &vec, int first, int last)
+static void ShellSort(std::vector<int> &vec, int first, int last)
 {
-    for (int gap = (last + 1) / 2; gap > 0; gap = (gap == 2) ? 1 : int(gap / 2.2))
+    for (int gap = last / 2; gap > 0; gap = (gap == 2) ? 1 : int(gap / 2.2))
     {
-        for (int i = gap; i < (last + 1); i++)
+        for (int i = gap; i <= last; i++)
         {
             int tmp = vec[i];
             int j = i;

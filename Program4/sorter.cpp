@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     }
     else if (sort_name == "InsertionSort")
     {
-        InsertionSort(items, 0, (size - 1) / 2);
+        InsertionSort(items, 0, size - 1);
     }
     else if (sort_name == "MergeSort")
     {
