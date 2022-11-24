@@ -2,10 +2,10 @@
 FileName: sorts.h
 Author: Han Pham
 Description: Implementation file for sort algorithms
-Course: CSS342
+Course: CSS342 B
 Instructor: Robert Dimpsey
 Created: Nov 16th, 2022
-Last Modified:
+Last Modified: Nov 22nd, 2022
 */
 
 #ifndef SORTS_H_
@@ -13,18 +13,6 @@ Last Modified:
 #include <iostream>
 #include <algorithm>
 #include <vector>
-
-/*
-# List of sort algorithms:
-## [x]: done; [~]: working; []: not started; [?]: bug found
-
-[x] BubbleSort
-[x] InsertionSort
-[x] MergeSort
-[x] IterativeMergeSort (non-recursive)
-[x] QuickSort
-[x] ShellSort
-*/
 
 static void InsertionSort(std::vector<int> &vec, int first, int last)
 {
