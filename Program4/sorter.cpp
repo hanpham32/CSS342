@@ -2,10 +2,10 @@
 FileName: sorter.cpp
 Author: Han Pham
 Description: Driver file for sorts.h
-Course: CSS342
+Course: CSS342 B
 Instructor: Robert Dimpsey
 Created: Nov 16th, 2022
-Last Modified:
+Last Modified: Nov 22nd, 2022
 */
 
 #include <vector>
