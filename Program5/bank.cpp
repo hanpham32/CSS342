@@ -1,5 +1,6 @@
 #include <iostream>
 #include "fund.h"
+#include "bstree.h"
 #include <vector>
 #include <string>
 
@@ -34,6 +35,8 @@ int main(int argc, char *argv[])
         std::cout << "To Display A Fund..." << std::endl;
         break;
     }
+
+    BSTree tree;
 
     std::vector<Fund> funds(8);
     for (int i = 0; i <= 7; i++)
