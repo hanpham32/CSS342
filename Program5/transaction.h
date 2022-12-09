@@ -6,6 +6,7 @@ Author: Hannah Pham
 Course: CSS 342 B Fall 22
 Instructor: Robert Dimpsey
 */
+#include <string>
 
 #ifndef TRANSACTION_H_
 #define TRANSACTION_H_
@@ -13,9 +14,9 @@ Instructor: Robert Dimpsey
 class Transaction
 {
 public:
-    Transaction();
+    Transaction(std::string c, int id, std::string first_name, std::string last_name);
 
 private:
-}
+};
 
 #endif

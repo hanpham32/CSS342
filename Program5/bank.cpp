@@ -1,6 +1,7 @@
 #include <iostream>
 #include "fund.h"
-#include "bstree.h"
+// #include "bstree.h"
+#include "transaction.h"
 #include <vector>
 #include <string>
 
@@ -13,6 +14,7 @@ int main(int argc, char *argv[])
     {
     case 'O':
         std::cout << "To Open..." << std::endl;
+        // Transaction t(argv[2]);
         break;
     case 'D':
         std::cout << "To Display..." << std::endl;
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
         break;
     }
 
-    BSTree tree;
+    // BSTree tree;
 
     std::vector<Fund> funds(8);
     for (int i = 0; i <= 7; i++)
