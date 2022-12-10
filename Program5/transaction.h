@@ -53,6 +53,7 @@ public:
             fund_ = stoi(next);
             iss >> next;
             amount_ = stoi(next);
+            std::cout << "Withdrawed" << amount_ << " from fund " << fund_ << std::endl;
             break;
         }
         case 'T':
@@ -65,16 +66,19 @@ public:
             to_fund_ = stoi(next);
             iss >> next;
             amount_ = stoi(next);
+            std::cout << "Transferred" << amount_ << " from fund " << fund_ << " to " << to_id_ << std::endl;
             break;
         }
         case 'A':
         {
+            std::cout << "Displayed all funds" << std::endl;
             break;
         }
         case 'F':
         {
             iss >> next;
             fund_ = stoi(next);
+            std::cout << "Displayed all fund " << fund_ << std::endl;
             break;
         }
         }
@@ -84,6 +88,39 @@ public:
     {
         os << transaction.c_ << " " << transaction.id_ << std::endl;
         return os;
+    }
+
+    char c() const
+    {
+        return c_;
+    }
+    std::string first_name() const
+    {
+        return first_name_;
+    }
+    std::string last_name() const
+    {
+        return last_name_;
+    }
+    int id() const
+    {
+        return id_;
+    }
+    int fund() const
+    {
+        return fund_;
+    }
+    int amount() const
+    {
+        return amount_;
+    }
+    int to_id() const
+    {
+        return to_id_;
+    }
+    int to_fund() const
+    {
+        return to_fund_;
     }
 
 private:

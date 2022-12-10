@@ -1,3 +1,2 @@
-O 500  Jones George
-O 1001 Cash Johnny
-D 1001 6 7542
+O 500 Jones George
+O 300 Pham Han

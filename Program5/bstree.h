@@ -6,48 +6,105 @@
 
 class BSTree
 {
-    // friend std::ostream &operator<<(std::ostream &os, const BSTree &tree);
 private:
     struct Node
     {
         Account *p_acct;
         Node *right;
         Node *left;
+
+        Node(Account *acct)
+        {
+            p_acct = acct;
+            right = nullptr;
+            left = nullptr;
+        };
     };
-    Node *root_ = nullptr;
+
+    Node *root;
     int count_ = 0;
 
-public:
-    BSTree()
+    void destroy_tree(Node *current)
     {
+        if (current == nullptr)
+        {
+            return;
+        }
+        destroy_tree(current->left);
+        destroy_tree(current->right);
+        current->p_acct->print_account();
+        delete (current);
     }
 
+public:
+    BSTree() : root(nullptr) {}
+
     BSTree(const BSTree &tree);
-    ~BSTree();
+    ~BSTree()
+    {
+        destroy_tree(root);
+    }
 
     BSTree &operator=(const BSTree &tree) const;
 
     friend std::ostream &operator<<(std::ostream &os, const BSTree &tree)
     {
+        return os;
     }
 
-    void Traverse(Node *root)
+    bool Insert(Account *account)
     {
-        if (root_ == nullptr)
-            return;
-
-        Traverse(root_->left);
-        std::cout << root_->(*p_acct) << " ";
-        Traverse(root_->right);
-    }
-
-    void Insert(int account_id, Account *account)
-    {
-        if (root_ == nullptr)
+        // If the tree is empty, insert node at the root
+        if (root == nullptr)
         {
-            Node *ins_node = new Node();
-            root_ = ins_node;
+            root = new Node(account);
+            count_++;
+            return true;
         }
+
+        Node *p_node = root;
+        return insert(account, p_node);
+    }
+
+    bool insert(Account *account, Node *p_node)
+    {
+        if (account->id() < p_node->p_acct->id())
+        {
+            // If there is no left child, insert the node here.
+            if (p_node->left == nullptr)
+            {
+                p_node->left = new Node(account);
+                count_++;
+                std::cout << "Count: " << Count() << std::endl;
+                return true;
+            }
+            // Otherwise, insert the node recursively.
+            else
+            {
+                insert(account, p_node->left);
+            }
+        }
+        else if (account->id() > p_node->p_acct->id())
+        {
+            // If there is no right child, insert the node here.
+            if (p_node->right == nullptr)
+            {
+                p_node->right = new Node(account);
+                count_++;
+                return true;
+            }
+            // Otherwise, insert the node recursively.
+            else
+            {
+                insert(account, p_node->right);
+            }
+        }
+        else
+        {
+            // the account is a duplicate
+            return false;
+        }
+        return false;
     }
 
     int Count() const
@@ -56,13 +113,62 @@ public:
     }
 
     bool Delete(int account_id);
-    bool Retrieve(int account_id, Account *&account) const; // pointer by reference
+    bool Retrieve(int account_id, Account *&account) const // pointer by reference
+    {
+        // Empty tree
+        if (root == nullptr)
+        {
+            return false;
+        }
+
+        Node *p_node = root;
+
+        return retrieve(p_node, account_id, account);
+    }
+
+    bool retrieve(Node *p_node, const int account_id, Account *&account) const
+    {
+        // check if account exist
+        if (p_node == nullptr)
+        {
+            return false;
+        }
+        if (account_id < p_node->p_acct->id())
+        {
+            return retrieve(p_node->left, account_id, account);
+        }
+        else if (account_id > p_node->p_acct->id())
+        {
+            return retrieve(p_node->right, account_id, account);
+        }
+        else
+        {
+            // found account
+            account = p_node->p_acct;
+            return true;
+        }
+    }
     // retrieve object, first parameter is the ID of the account
     // second parameter holds pointer to found object, NULL if not found
     // Delete object, first parameter is the ID of the account
     // second parameter holds pointer to found object, NULL if not found
     // displays the contents of a tree to cout; you could also overload
-    void Display() const;
+
+    // void AllAccounts() const
+    // {
+    //     Node *p_node = root;
+    //     allaccounts(p_node);
+    // }
+    // void allaccounts(Node *p_node) const
+    // {
+    //     if (p_node == nullptr)
+    //     {
+    //         return;
+    //     }
+    //     allaccounts(p_node->left);
+    //     allaccounts(p_node->right);
+    //     p_node->p_acct->account();
+    // }
 };
 
 #endif
