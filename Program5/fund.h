@@ -39,6 +39,10 @@ public:
     {
         return balance_;
     }
+    void clear()
+    {
+        balance_ = 0;
+    }
 
     void AddHistory(std::string line)
     {

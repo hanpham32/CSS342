@@ -1,3 +1,11 @@
+/*
+FileName: bstree.h
+Description: header and implementation of binary search tree
+Created On: November 7th, 2022
+Author: Hannah Pham
+Course: CSS 342 B Fall 22
+Instructor: Robert Dimpsey
+*/
 #include "account.h"
 #include <iostream>
 
@@ -48,10 +56,10 @@ public:
 
     BSTree &operator=(const BSTree &tree) const;
 
-    friend std::ostream &operator<<(std::ostream &os, const BSTree &tree)
-    {
-        return os;
-    }
+    // friend std::ostream &operator<<(std::ostream &os, const BSTree &tree)
+    // {
+    //     return os;
+    // }
 
     bool Insert(Account *account)
     {
@@ -60,7 +68,8 @@ public:
 
     bool insert(Account *account, Node *&p_node)
     {
-        if (!p_node)
+        // Check if empty
+        if (p_node == nullptr)
         {
             p_node = new Node(account);
             count_++;
@@ -68,39 +77,15 @@ public:
         }
         else if (account->id() < p_node->p_acct->id())
         {
-            // If there is no left child, insert the node here.
-
-            std::cout << "hello?" << std::endl;
-            if (p_node->left == nullptr)
-            {
-                p_node->left = new Node(account);
-                count_++;
-                return true;
-            }
-            // Otherwise, insert the node recursively.
-            else
-            {
-                insert(account, p_node->left);
-            }
+            return insert(account, p_node->left);
         }
         else if (account->id() > p_node->p_acct->id())
         {
-            // If there is no right child, insert the node here.
-            if (p_node->right == nullptr)
-            {
-                p_node->right = new Node(account);
-                count_++;
-                return true;
-            }
-            // Otherwise, insert the node recursively.
-            else
-            {
-                insert(account, p_node->right);
-            }
+            return insert(account, p_node->right);
         }
         else
         {
-            // the account is a duplicate
+            // The account is a duplicate
             return false;
         }
         return false;
@@ -147,27 +132,6 @@ public:
             return true;
         }
     }
-    // retrieve object, first parameter is the ID of the account
-    // second parameter holds pointer to found object, NULL if not found
-    // Delete object, first parameter is the ID of the account
-    // second parameter holds pointer to found object, NULL if not found
-    // displays the contents of a tree to cout; you could also overload
-
-    // void AllAccounts() const
-    // {
-    //     Node *p_node = root;
-    //     allaccounts(p_node);
-    // }
-    // void allaccounts(Node *p_node) const
-    // {
-    //     if (p_node == nullptr)
-    //     {
-    //         return;
-    //     }
-    //     allaccounts(p_node->left);
-    //     allaccounts(p_node->right);
-    //     p_node->p_acct->print_account();
-    // }
 };
 
 #endif

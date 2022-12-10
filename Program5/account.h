@@ -40,7 +40,7 @@ public:
 
     void print_account() const
     {
-        std::cout << first_name() << " " << last_name() << " "
+        std::cout << last_name() << " " << first_name() << " "
                   << "Account ID: " << id() << std::endl;
         for (int i = 0; i < kFunds; i++)
         {
@@ -117,7 +117,61 @@ public:
 
     void Withdraw(int fund, int amount)
     {
-        funds_[fund].Withdraw(amount);
+        // check if fund has sufficient balance
+        if (funds_[fund].balance() >= amount)
+        {
+            funds_[fund].Withdraw(amount);
+        }
+        else
+        {
+            switch (fund)
+            {
+            case 0:
+            {
+                if (funds_[0].balance() + funds_[1].balance() >= amount)
+                {
+                    int remained = amount - funds_[0].balance();
+                    funds_[0].clear();
+                    funds_[1].Withdraw(remained);
+                }
+                break;
+            }
+            case 1:
+            {
+                if (funds_[0].balance() + funds_[1].balance() >= amount)
+                {
+                    int remained = amount - funds_[1].balance();
+                    funds_[1].clear();
+                    funds_[0].Withdraw(remained);
+                }
+                break;
+            }
+            case 2:
+            {
+                if (funds_[2].balance() + funds_[3].balance() >= amount)
+                {
+                    int remained = amount - funds_[2].balance();
+                    funds_[2].clear();
+                    funds_[3].Withdraw(remained);
+                }
+                break;
+            }
+            case 3:
+            {
+                if (funds_[2].balance() + funds_[3].balance() >= amount)
+                {
+                    int remained = amount - funds_[3].balance();
+                    funds_[3].clear();
+                    funds_[2].Withdraw(remained);
+                }
+                break;
+            }
+            default:
+            {
+                std::cout << "ERROR:: Insufficient Balance" << std::endl;
+            }
+            }
+        }
     }
     void AddHistory(int fund, std::string line)
     {
