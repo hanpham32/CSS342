@@ -1,2 +1,3 @@
-O 500 Jones George
-O 300 Pham Han
+O 500  Jones George
+D 500 0 1000
+W 500 0 800

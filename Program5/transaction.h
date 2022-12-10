@@ -35,7 +35,6 @@ public:
             first_name_ = next;
             iss >> next;
             last_name_ = next;
-            std::cout << "Opened a new account: " << last_name_ << ", " << first_name_ << " id: " << id_ << std::endl;
             break;
         }
         case 'D':
@@ -44,7 +43,6 @@ public:
             fund_ = stoi(next);
             iss >> next;
             amount_ = stoi(next);
-            std::cout << "Deposited " << amount_ << " to fund " << fund_ << std::endl;
             break;
         }
         case 'W':
@@ -53,7 +51,6 @@ public:
             fund_ = stoi(next);
             iss >> next;
             amount_ = stoi(next);
-            std::cout << "Withdrawed" << amount_ << " from fund " << fund_ << std::endl;
             break;
         }
         case 'T':
@@ -121,6 +118,29 @@ public:
     int to_fund() const
     {
         return to_fund_;
+    }
+
+    std::string TransactionToString() const
+    {
+        char c = c_;
+        switch (c)
+        {
+        case 'D':
+        {
+            std::string str;
+            str.push_back(c_);
+            str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
+            return str;
+        }
+        case 'W':
+        {
+            std::string str;
+            str.push_back(c_);
+            str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
+            return str;
+        }
+        }
+        return "";
     }
 
 private:

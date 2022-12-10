@@ -54,28 +54,24 @@ public:
 
     bool Insert(Account *account)
     {
-        // If the tree is empty, insert node at the root
-        if (root == nullptr)
+        return insert(account, root);
+    }
+
+    bool insert(Account *account, Node *&p_node)
+    {
+        if (!p_node)
         {
-            root = new Node(account);
+            p_node = new Node(account);
             count_++;
             return true;
         }
-
-        Node *p_node = root;
-        return insert(account, p_node);
-    }
-
-    bool insert(Account *account, Node *p_node)
-    {
-        if (account->id() < p_node->p_acct->id())
+        else if (account->id() < p_node->p_acct->id())
         {
             // If there is no left child, insert the node here.
             if (p_node->left == nullptr)
             {
                 p_node->left = new Node(account);
                 count_++;
-                std::cout << "Count: " << Count() << std::endl;
                 return true;
             }
             // Otherwise, insert the node recursively.
@@ -167,7 +163,7 @@ public:
     //     }
     //     allaccounts(p_node->left);
     //     allaccounts(p_node->right);
-    //     p_node->p_acct->account();
+    //     p_node->p_acct->print_account();
     // }
 };
 
