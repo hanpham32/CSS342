@@ -43,6 +43,7 @@ public:
     ~BSTree()
     {
         destroy_tree(root);
+        root = nullptr;
     }
 
     BSTree &operator=(const BSTree &tree) const;
@@ -68,6 +69,8 @@ public:
         else if (account->id() < p_node->p_acct->id())
         {
             // If there is no left child, insert the node here.
+
+            std::cout << "hello?" << std::endl;
             if (p_node->left == nullptr)
             {
                 p_node->left = new Node(account);

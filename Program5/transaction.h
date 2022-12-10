@@ -120,28 +120,28 @@ public:
         return to_fund_;
     }
 
-    std::string TransactionToString() const
-    {
-        char c = c_;
-        switch (c)
-        {
-        case 'D':
-        {
-            std::string str;
-            str.push_back(c_);
-            str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
-            return str;
-        }
-        case 'W':
-        {
-            std::string str;
-            str.push_back(c_);
-            str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
-            return str;
-        }
-        }
-        return "";
-    }
+    // std::string TransactionToString() const
+    // {
+    //     char c = c_;
+    //     switch (c)
+    //     {
+    //     case 'D':
+    //     {
+    //         std::string str;
+    //         str.push_back(c_);
+    //         str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
+    //         return str;
+    //     }
+    //     case 'W':
+    //     {
+    //         std::string str;
+    //         str.push_back(c_);
+    //         str = id() + " " + std::to_string(fund()) + " " + std::to_string(amount());
+    //         return str;
+    //     }
+    //     }
+    //     return "";
+    // }
 
 private:
     char c_;
