@@ -43,20 +43,23 @@ int main(int argc, char *argv[])
         if (t.c() == 'O')
         {
             Account acct(t.id(), t.last_name(), t.first_name());
-            tree.Insert(&acct);
+            bool result = tree.Insert(&acct);
         }
         else if (t.c() == 'D')
         {
             Account *temp_acct;
             tree.Retrieve(t.id(), temp_acct);
             temp_acct->Deposit(t.fund(), t.amount());
-            temp_acct->
+            // std::string line = t.TransactionToString();
+            // temp_acct->AddHistory(t.fund(), line);
         }
         else if (t.c() == 'W')
         {
             Account *temp_acct;
             tree.Retrieve(t.id(), temp_acct);
             temp_acct->Withdraw(t.fund(), t.amount());
+            // std::string line = t.TransactionToString();
+            // temp_acct->AddHistory(t.fund(), line);
         }
         else if (t.c() == 'T')
         {
@@ -91,14 +94,9 @@ int main(int argc, char *argv[])
         {
             std::cout << "Invalid transaction argument" << std::endl;
         }
-        // tree.AllAccounts();
-        // if (t.c() == 'T')
-        // {
-        // }
-        // tree.AllAccounts();
         q.pop();
     }
 
-    // // Phase 3: Output
-    // std::cout << "FINAL BALANCES:" << std::endl;
+    // Phase 3: Output
+    std::cout << "FINAL BALANCES:" << std::endl;
 }

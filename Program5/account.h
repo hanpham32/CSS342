@@ -25,9 +25,9 @@ public:
 
     Account(int id, std::string last_name, std::string first_name) : id_(id), last_name_(last_name), first_name_(first_name)
     {
-        Fund f(0);
         for (int i = 0; i < kFunds; i++)
         {
+            Fund f;
             funds_.push_back(f);
         }
     }
