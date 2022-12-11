@@ -120,24 +120,30 @@ public:
     std::string TransactionToString() const
     {
         char c = c_;
+        std::string str;
+        str.push_back(c_);
         switch (c)
         {
         case 'D':
         {
-            std::string str;
-            str.push_back(c_);
             str = std::to_string(id()) + " " + std::to_string(fund()) + " " + std::to_string(amount());
             return str;
         }
         case 'W':
         {
-            std::string str;
-            str.push_back(c_);
             str = std::to_string(id()) + " " + std::to_string(fund()) + " " + std::to_string(amount());
             return str;
         }
+        case 'T':
+        {
+            std::string id_str = std::to_string(id());
+            std::string fund_str = std::to_string(fund());
+            std::string to_id_str = std::to_string(to_id());
+            std::string to_fund_str = std::to_string(to_fund());
+            str = id_str + fund_str + to_id_str + to_fund_str + std::to_string(amount());
         }
-        return "";
+        }
+        return str;
     }
 
 private:
