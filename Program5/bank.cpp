@@ -16,13 +16,6 @@ Instructor: Robert Dimpsey
 #include <stdlib.h>
 #include <queue>
 
-class BankOperation
-{
-    void O()
-    {
-    }
-};
-
 int main(int argc, char *argv[])
 {
     std::fstream file("example.txt");
@@ -31,10 +24,6 @@ int main(int argc, char *argv[])
     std::queue<Transaction> q;
 
     BSTree tree;
-
-    // Account acct1(13, "Pham", "Han");
-    // std::cout << acct1 << std::endl;
-    // tree.Insert(&acct1);
 
     // PHASE 1 : Read file
     while (getline(file, line))
@@ -56,18 +45,22 @@ int main(int argc, char *argv[])
         else if (t.c() == 'D')
         {
             Account *temp_acct;
-            tree.Retrieve(t.id(), temp_acct);
-            temp_acct->Deposit(t.fund(), t.amount());
-            std::string line = t.TransactionToString();
-            temp_acct->AddHistory(t.fund(), line);
+            if (tree.Retrieve(t.id(), temp_acct))
+            {
+                temp_acct->Deposit(t.fund(), t.amount());
+                std::string line = t.TransactionToString();
+                temp_acct->AddHistory(t.fund(), line);
+            }
         }
         else if (t.c() == 'W')
         {
             Account *temp_acct;
-            tree.Retrieve(t.id(), temp_acct);
-            temp_acct->Withdraw(t.fund(), t.amount());
-            std::string line = t.TransactionToString();
-            temp_acct->AddHistory(t.fund(), line);
+            if (tree.Retrieve(t.id(), temp_acct))
+            {
+                temp_acct->Withdraw(t.fund(), t.amount());
+                std::string line = t.TransactionToString();
+                temp_acct->AddHistory(t.fund(), line);
+            }
         }
         else if (t.c() == 'T')
         {
@@ -93,14 +86,18 @@ int main(int argc, char *argv[])
         else if (t.c() == 'A')
         {
             Account *temp_acct;
-            tree.Retrieve(t.id(), temp_acct);
-            temp_acct->PrintFundsHistory();
+            if (tree.Retrieve(t.id(), temp_acct))
+            {
+                temp_acct->PrintFundsHistory();
+            }
         }
         else if (t.c() == 'F')
         {
             Account *temp_acct;
-            tree.Retrieve(t.id(), temp_acct);
-            temp_acct->PrintFund(t.fund());
+            if (tree.Retrieve(t.id(), temp_acct))
+            {
+                temp_acct->PrintFund(t.fund());
+            }
         }
         else
         {

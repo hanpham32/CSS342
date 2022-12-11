@@ -96,18 +96,9 @@ public:
     }
 
     // Accessors
-    std::string last_name() const
-    {
-        return last_name_;
-    }
-    std::string first_name() const
-    {
-        return first_name_;
-    }
-    int id() const
-    {
-        return id_;
-    }
+    std::string last_name() const { return last_name_; }
+    std::string first_name() const { return first_name_; }
+    int id() const { return id_; }
 
     // Add to fund
     void Deposit(int fund, int amount)
@@ -124,55 +115,61 @@ public:
         }
         else
         {
-            switch (fund)
-            {
-            case 0:
-            {
-                if (funds_[0].balance() + funds_[1].balance() >= amount)
-                {
-                    int remained = amount - funds_[0].balance();
-                    funds_[0].clear();
-                    funds_[1].Withdraw(remained);
-                }
-                break;
-            }
-            case 1:
-            {
-                if (funds_[0].balance() + funds_[1].balance() >= amount)
-                {
-                    int remained = amount - funds_[1].balance();
-                    funds_[1].clear();
-                    funds_[0].Withdraw(remained);
-                }
-                break;
-            }
-            case 2:
-            {
-                if (funds_[2].balance() + funds_[3].balance() >= amount)
-                {
-                    int remained = amount - funds_[2].balance();
-                    funds_[2].clear();
-                    funds_[3].Withdraw(remained);
-                }
-                break;
-            }
-            case 3:
-            {
-                if (funds_[2].balance() + funds_[3].balance() >= amount)
-                {
-                    int remained = amount - funds_[3].balance();
-                    funds_[3].clear();
-                    funds_[2].Withdraw(remained);
-                }
-                break;
-            }
-            default:
-            {
-                std::cout << "ERROR:: Insufficient Balance" << std::endl;
-            }
-            }
+            WithdrawInsufficientFund(fund, amount);
         }
     }
+
+    void WithdrawInsufficientFund(int fund, int amount)
+    {
+        switch (fund)
+        {
+        case 0:
+        {
+            if (funds_[0].balance() + funds_[1].balance() >= amount)
+            {
+                int remained = amount - funds_[0].balance();
+                funds_[0].clear();
+                funds_[1].Withdraw(remained);
+            }
+            break;
+        }
+        case 1:
+        {
+            if (funds_[0].balance() + funds_[1].balance() >= amount)
+            {
+                int remained = amount - funds_[1].balance();
+                funds_[1].clear();
+                funds_[0].Withdraw(remained);
+            }
+            break;
+        }
+        case 2:
+        {
+            if (funds_[2].balance() + funds_[3].balance() >= amount)
+            {
+                int remained = amount - funds_[2].balance();
+                funds_[2].clear();
+                funds_[3].Withdraw(remained);
+            }
+            break;
+        }
+        case 3:
+        {
+            if (funds_[2].balance() + funds_[3].balance() >= amount)
+            {
+                int remained = amount - funds_[3].balance();
+                funds_[3].clear();
+                funds_[2].Withdraw(remained);
+            }
+            break;
+        }
+        default:
+        {
+            std::cout << "ERROR:: Insufficient Balance" << std::endl;
+        }
+        }
+    }
+
     void AddHistory(int fund, std::string line)
     {
         funds_[fund].AddHistory(line);
@@ -186,8 +183,7 @@ public:
             funds_[i].PrintAllHistory();
         }
     }
-
-    void PrintFund(int fund)
+    void PrintFund(int fund) const
     {
         std::cout << "Transaction History for " << first_name() << " " << last_name() << " " << kFundsName[fund] << ": $" << funds_[fund].balance() << std::endl;
         funds_[fund].PrintAllHistory();
@@ -197,8 +193,6 @@ private:
     int id_;
     std::string first_name_;
     std::string last_name_;
-
-    // std::vector<Fund> funds_;
     std::vector<Fund> funds_;
 };
 #endif
