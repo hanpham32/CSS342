@@ -18,44 +18,17 @@ class Fund
 {
 public:
     // Constructor
-    Fund() : balance_(0){};
+    Fund();
 
-    void Deposit(int amount)
-    {
-        balance_ += amount;
-    }
-    void Withdraw(int amount)
-    {
-        balance_ -= amount;
-    }
-    void Transfer(Fund &to, int amount)
-    {
-        balance_ -= amount;
-        to.balance_ += amount;
-    }
-    friend std::ostream &operator<<(std::ostream &os, Fund &fund);
+    void Deposit(int amount);
+    void Withdraw(int amount);
+    void Transfer(Fund &to, int amount);
 
-    int balance() const
-    {
-        return balance_;
-    }
-    void clear()
-    {
-        balance_ = 0;
-    }
+    int balance() const;
+    void clear();
 
-    void AddHistory(std::string line)
-    {
-        history_.push_back(line);
-    }
-
-    void PrintAllHistory() const
-    {
-        for (int i = 0; i < history_.size(); i++)
-        {
-            std::cout << history_[i] << std::endl;
-        }
-    }
+    void AddHistory(std::string line);
+    void PrintAllHistory() const;
 
 private:
     int balance_;

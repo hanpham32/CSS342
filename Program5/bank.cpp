@@ -18,7 +18,7 @@ Instructor: Robert Dimpsey
 
 int main(int argc, char *argv[])
 {
-    std::fstream file("example.txt");
+    std::fstream file(argv[1]);
     std::string line;
 
     std::queue<Transaction> q;
